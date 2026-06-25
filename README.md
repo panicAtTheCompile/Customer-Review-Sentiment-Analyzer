@@ -1,136 +1,181 @@
-# Customer Review Sentiment Analyzer
+# 🛒 Customer Review Sentiment Analyzer
+
+> An end-to-end Natural Language Processing (NLP) application that classifies customer reviews into **Positive**, **Neutral**, or **Negative** sentiment using TF-IDF vectorization, Logistic Regression, and an interactive Streamlit interface.
+
+---
 
 ## Overview
 
-This project classifies Amazon product reviews into Positive, Neutral, and Negative sentiments using Natural Language Processing (NLP) and Machine Learning.
+Customer feedback provides valuable insights into product quality and user satisfaction, but manually analyzing large volumes of reviews is time-consuming.
 
-The idea is to help users quickly understand the sentiment behind customer reviews without having to read hundreds of comments manually.
+This project presents an end-to-end sentiment analysis pipeline that transforms raw customer reviews into structured sentiment predictions through text preprocessing, TF-IDF feature extraction, machine learning classification, and an interactive Streamlit application.
 
-## Features
+The application predicts customer sentiment in real time while providing prediction confidence and class probability scores for improved interpretability.
 
-* Text preprocessing and cleaning
-* Sentiment classification into Positive, Neutral, and Negative
-* TF-IDF based feature extraction
-* Logistic Regression model
-* Interactive Streamlit interface for real-time predictions
+---
 
-## Dataset
+# Features
 
-The model is trained on an Amazon Product Reviews dataset obtained from Kaggle.
+* 💬 Real-time customer review sentiment prediction
+* 🤖 Logistic Regression classifier
+* 📄 TF-IDF text vectorization
+* 📊 Prediction confidence scores
+* 📈 Class probability visualization
+* 🎯 Interactive Streamlit interface
+* 📝 Example reviews for quick testing
+* 🔁 Reproducible machine learning pipeline
 
-Star ratings are converted into sentiment labels as follows:
+---
 
-| Rating | Sentiment |
-| ------ | --------- |
-| 4-5    | Positive  |
-| 3      | Neutral   |
-| 1-2    | Negative  |
+# Application Workflow
 
-## Technologies Used
+```text
+Customer Review
+        │
+        ▼
+Text Preprocessing
+        │
+        ▼
+TF-IDF Vectorization
+        │
+        ▼
+Logistic Regression
+        │
+        ▼
+Sentiment Prediction
+        │
+        ▼
+Confidence Score & Probability Distribution
+```
+
+---
+
+# Screenshots
+
+## Positive Sentiment Prediction
+
+<p align="center">
+<img src="screenshots/positive.png" width="90%">
+</p>
+
+---
+
+## Negative Sentiment Prediction
+
+<p align="center">
+<img src="screenshots/negative.png" width="90%">
+</p>
+
+---
+
+# Machine Learning Pipeline
+
+The project follows a traditional supervised learning workflow:
+
+1. Load customer review dataset
+2. Split into training and testing sets
+3. Convert text into TF-IDF feature vectors
+4. Train Logistic Regression classifier
+5. Evaluate model performance
+6. Save trained model using Joblib
+7. Perform real-time inference through Streamlit
+
+---
+
+# Technology Stack
+
+### Programming Language
 
 * Python
+
+### Machine Learning
+
+* Scikit-learn
+* Logistic Regression
+* TF-IDF Vectorizer
+
+### Data Processing
+
 * Pandas
 * NumPy
-* Scikit-Learn
+
+### Deployment Interface
+
 * Streamlit
+
+### Model Serialization
+
 * Joblib
 
-## Project Structure
+---
+
+# Project Structure
 
 ```text
-Customer_Review_Sentiment_Analyzer/
-│
-├── app.py
-├── train.py
-├── model.pkl
-├── vectorizer.pkl
+customer_review_sentiment_analyzer/
+
+├── app.py                  # Streamlit application
+├── train.py                # Model training script
+├── model.pkl               # Trained classifier
+├── vectorizer.pkl          # TF-IDF vectorizer
 ├── requirements.txt
 ├── README.md
+│
 ├── dataset/
+│     └── customer_reviews.csv
+│
 └── screenshots/
+      ├── homepage.png
+      ├── positive.png
+      └── negative.png
 ```
 
-## Model Pipeline
+---
 
-1. Load and preprocess review data
-2. Convert ratings into sentiment labels
-3. Clean review text
-4. Transform text using TF-IDF Vectorization
-5. Train a Logistic Regression classifier
-6. Evaluate model performance
-7. Save the trained model and vectorizer
-8. Use Streamlit for real-time sentiment prediction
+# Running the Project
 
-## Performance
+Clone the repository
 
-Model: Logistic Regression
-
-Feature Extraction: TF-IDF Vectorization
-
-Accuracy Achieved: **88.78%**
-
-Classification Report:
-
-```text
-Negative  -> Precision: 0.69 | Recall: 0.59
-Neutral   -> Precision: 0.37 | Recall: 0.12
-Positive  -> Precision: 0.92 | Recall: 0.98
+```bash
+git clone https://github.com/panicAtTheCompile/customer_review_sentiment_analyzer.git
 ```
 
-## Running the Project
-
-Install dependencies:
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Train the model:
-
-```bash
-python train.py
-```
-
-Run the application:
+Launch the application
 
 ```bash
 streamlit run app.py
 ```
 
-## Sample Predictions
+---
 
-Input:
+# Future Improvements
 
-```text
-This product exceeded my expectations and works perfectly.
-```
+* Transformer-based sentiment classification (BERT)
+* Explainable AI using SHAP
+* Cloud deployment
+* Batch sentiment analysis
+* REST API integration
+* Aspect-based sentiment analysis
+* Interactive analytics dashboard
 
-Output:
+---
 
-```text
-Positive
-```
+# Author
 
-Input:
+**Harshita Pulavarti**
 
-```text
-Worst purchase I have made. Completely disappointed.
-```
+Engineering Undergraduate • IIT Kharagpur
 
-Output:
+Interested in Artificial Intelligence • Machine Learning • NLP • Data Science
 
-```text
-Negative
-```
+---
 
-## Future Improvements
+## License
 
-* Experiment with XGBoost and LightGBM
-* Improve Neutral sentiment detection
-* Fine-tune transformer-based models such as BERT
-* Deploy the application online
-
-## Author
-
-Built as part of an open-source contribution to ML-CaPsule.
-
+This project is released under the MIT License.
